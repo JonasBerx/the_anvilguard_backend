@@ -1,10 +1,16 @@
 package com.anvilguard.the_anvilguard_backend.model;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import lombok.*;
 
+import javax.persistence.*;
+
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+@Entity
+@Table(name = "players")
 public class Player {
 
     @Id
@@ -13,4 +19,7 @@ public class Player {
 
     @Column(name = "player_name")
     private String playerName;
+
+    @Column(name = "friendly")
+    private boolean friendly;
 }

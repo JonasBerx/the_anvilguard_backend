@@ -33,4 +33,9 @@ public class BountyController {
         return new ResponseEntity<>(bounties, HttpStatus.OK);
     }
 
+    @GetMapping("/complete/{playerName}")
+    public ResponseEntity<Bounty> completeBounty(@PathVariable String playerName) {
+        System.out.println("TEST");
+        return new ResponseEntity<>(bountyService.completeBounty(playerName), HttpStatus.OK);
+    }
 }

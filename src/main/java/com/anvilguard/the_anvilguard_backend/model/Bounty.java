@@ -11,7 +11,7 @@ import javax.persistence.*;
 @AllArgsConstructor
 @Builder
 @Entity
-@Table(name="bounties")
+@Table(name = "bounties")
 public class Bounty {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,6 +19,9 @@ public class Bounty {
 
     @Column(name = "player_name")
     private String playerName;
+
+    @ManyToOne(targetEntity = Player.class)
+    private Player player;
 
     @Enumerated(EnumType.STRING)
     @Nullable
@@ -31,4 +34,7 @@ public class Bounty {
     @Column(name = "reward")
     @Nullable
     private String reward;
+
+    @Column(name = "completed")
+    private boolean completed;
 }
